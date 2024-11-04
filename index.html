@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="script/validation.js"></script>
+    <title>Password Authentication</title>
+  <!-- <link rel="stylesheet" href="css/main.css"> -->
+</head>
+<body>
+    <div id="create">
+        <form action="php/Register_user.php" method="POST">
+            <fieldset>
+                <legend>Create Account</legend>
+                <label for="c-username">Username:</label>
+                <input type="text" name="c-username" id="c-username" required><br>
+
+
+                <label for="c-password">Password:</label>
+                <input type="password" name="c-password" id="c-password" required
+                        minlength="8" 
+                        pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}" 
+                        title="Must contain at least 8 characters, including uppercase, lowercase, number, and special character">
+                <br>
+            
+            <input type="submit" value="Create Account">
+            </fieldset>
+            <!-- Password Validation Checklist -->
+            <ul class="validation">
+                <li id="minLength"><span class="checkmark">✘</span>At least 8 characters</li>
+                <li id="lowercase"><span class="checkmark">✘</span>At least one lowercase letter</li>
+                <li id="uppercase"><span class="checkmark">✘</span>At least one uppercase letter</li>
+                <li id="number"><span class="checkmark">✘</span>At least one number</li>
+                <li id="specialChar"><span class="checkmark">✘</span>At least one special character (@$!%*?&)</li>
+            </ul>
+           
+        </form>
+
+    </div>
+
+
+    <div id="login">
+        <form action="php/Login_user.php" method="POST">
+            <fieldset>
+                <legend>Login</legend>
+                <label for="l-username">Username:</label>
+                <input type="text" name="l-username" id="l-username" required>
+               <br>
+
+                <label for="l-password">Password:</label>
+                <input type="password" name="l-password" id="l-password" required> 
+                
+                <br>
+
+
+                <input type="submit" value="Login">
+            </fieldset>
+        </form>
+    </div>
+
+
+    <form id="exForm" action="php/usernames.php" method="GET">
+        <fieldset>
+            <legend>Enter</legend>
+            <input type="submit" value="Submit your data">
+        </fieldset>
+    </form>
+
+</body>
+</html>
