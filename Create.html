@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="script/validation.js"></script>
+    <title>Password Authentication Create Account</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+<div class="container">
+    <div id="create">
+        <form action="php/user.php" method="POST">
+            <fieldset>
+                <legend>Create Account</legend>
+                <label for="c-username">Username:</label>
+                <input type="text" name="c-username" id="c-username" required><br>
+
+
+
+
+                <label for="c-password">Password:</label>
+                <input type="password" name="c-password" id="c-password" required><br>
+
+
+
+
+            <ul class="validation">
+                <li id="minLength"><span class="checkmark">✘</span>At least 8 characters</li>
+                <li id="lowercase"><span class="checkmark">✘</span>At least one lowercase letter</li>
+                <li id="uppercase"><span class="checkmark">✘</span>At least one uppercase letter</li>
+                <li id="number"><span class="checkmark">✘</span>At least one number</li>
+                <li id="specialChar"><span class="checkmark">✘</span>At least one special character (@$!%*?&)</li>
+            </ul>
+
+
+
+
+                <input type="submit" value="Create Account">
+            </fieldset>
+        </form>
+    </div>
+
+
+    <form id="exForm" action="php/usernames.php" method="GET">
+        <fieldset>
+            <legend>Enter</legend>
+            <input type="submit" value="Submit your data">
+        </fieldset>
+    </form>
+    <script src="script/validation.js"></script>
+    <div id="page-switch">
+        <p><a href="login.html">Already have an account? Click here</a></p>
+    </div>
+</div>
+</body>
+</html>
