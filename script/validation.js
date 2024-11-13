@@ -1,5 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
     const passwordField = document.getElementById("c-password");
+    const validationList = document.querySelector(".validation");
+
 
     // Validation criteria elements
     const minLength = document.getElementById("minLength");
@@ -15,6 +17,7 @@ document.addEventListener("DOMContentLoaded", function() {
     passwordField.addEventListener("input", function() {
         const password = passwordField.value;
 
+
         // Validate each criterion
         if (password.length >= 8) {
             minLength.classList.add("valid");
@@ -24,6 +27,7 @@ document.addEventListener("DOMContentLoaded", function() {
             minLength.querySelector(".checkmark").textContent = "✘";
         }
 
+
         if (/[a-z]/.test(password)) {
             lowercase.classList.add("valid");
             lowercase.querySelector(".checkmark").textContent = "✔";
@@ -31,6 +35,7 @@ document.addEventListener("DOMContentLoaded", function() {
             lowercase.classList.remove("valid");
             lowercase.querySelector(".checkmark").textContent = "✘";
         }
+
 
         if (/[A-Z]/.test(password)) {
             uppercase.classList.add("valid");
@@ -54,6 +59,7 @@ document.addEventListener("DOMContentLoaded", function() {
             number.querySelector(".checkmark").textContent = "✘";
         }
 
-    });
 
+    });
 });
+
