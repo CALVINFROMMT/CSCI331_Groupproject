@@ -11,19 +11,15 @@
 <body>
 <div class="container">
     <div id="create">
-        <form action="php/Register_user.php" method="POST">
+        <form action="php/user.php" method="POST">
             <fieldset>
                 <legend>Create Account</legend>
                 <label for="c-username">Username:</label>
                 <input type="text" name="c-username" id="c-username" required><br>
 
 
-
-
                 <label for="c-password">Password:</label>
                 <input type="password" name="c-password" id="c-password" required><br>
-
-
 
 
             <ul class="validation">
@@ -35,23 +31,14 @@
             </ul>
 
 
-
-
                 <input type="submit" value="Create Account">
             </fieldset>
         </form>
     </div>
-
-
-    <form id="exForm" action="php/usernames.php" method="GET">
-        <fieldset>
-            <legend>Enter</legend>
-            <input type="submit" value="Submit your data">
-        </fieldset>
     </form>
     <script src="script/validation.js"></script>
     <div id="page-switch">
-        <p><a href="Login.html">Already have an account? Click here</a></p>
+        <p><a href="login.html">Already have an account? Click here</a></p>
     </div>
 </div>
 </body>
