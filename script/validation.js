@@ -8,6 +8,10 @@ document.addEventListener("DOMContentLoaded", function() {
     const number = document.getElementById("number");
     const specialChar = document.getElementById("specialChar");
 
+    passwordField.addEventListener("focus", () => {
+        validationList.style.display = "block";
+    });
+
     passwordField.addEventListener("input", function() {
         const password = passwordField.value;
 
