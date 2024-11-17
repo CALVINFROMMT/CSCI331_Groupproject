@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (password_verify($password, $user['password_hash'])) {
         
             if($user['admin']){
-                header("Location: admin_dashboard.php");
+                header("Location: php/admin_dashboard.php");
                 exit();  // Send "success" message for JavaScript to process
             }
             else{
