@@ -14,27 +14,26 @@ document.addEventListener("DOMContentLoaded", function() {
         })
         .then(response => response.text())
         .then(data => {
-            console.log("Server Response:", data); 
-            // Display the login status message
+
             if (data === "admin") {
-                loginStatus.textContent = "Redirect successful!";
+                loginStatus.textContent = data;
                 loginStatus.style.color = "blue";
-                // REDIRECT TO admin dash.
-                setTimeout(() => {
-                    window.location.href = "admin_dashboard.php";
-                }, 1000);
             } 
             else if (data === "success") {
              
+                loginStatus.textContent = "data";
+                loginStatus.style.color = "green";
+            } 
+            else if (data == "failure"){
                 loginStatus.textContent = "Login successful!";
                 loginStatus.style.color = "red";
             }else {
-                loginStatus.textContent = "Login failed. Please check your username and password.";
+                loginStatus.textContent = data;
                 loginStatus.style.color = "red";
             }
         })
         .catch(error => {
-            loginStatus.textContent = "An error occurred. Please try again later.";
+            loginStatus.textContent = data;
             loginStatus.style.color = "red";
         });
     });

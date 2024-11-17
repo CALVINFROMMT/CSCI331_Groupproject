@@ -26,19 +26,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($result->num_rows === 1) {
         $user = $result->fetch_assoc();
-        echo "ADMIN value: ". $user['admin'];
         // Verify the password
         if (password_verify($password, $user['password_hash'])) {
             $_SESSION['username'] = $username;
+            $query2 = "SELECT admin FROM users WHERE username = $username";
         //CHECK FOR ADMIN STATUS.
             // USER HAS ADMIN PRIVLAGES
-            if ($user['admin'] == 1){
+            if ($query2 === 0){
 
                 echo "admin";  // Send "success" message for JavaScript to process
             }
             // USER IS **NOT** ADMIN
-            else{
+            elseif ($user['admin'] == 0){
+                
                 echo "success";  // Send "success" message for JavaScript to process
+            }
+            else{
+                echo "fault";  // Send "success" message for JavaScript to process
             }
         } 
         // PASSWORDS DONT MATCH
