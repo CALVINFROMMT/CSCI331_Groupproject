@@ -2,10 +2,10 @@
 session_start();
 
 // Database connection (replace with your actual credentials)
-$db_host = 'localhost';
-$db_user = 'your_username';
-$db_pass = 'your_password';
-$db_name = 'your_database';
+$db_host = "localhost";
+$db_user = "user43";
+$db_pass = "43falx";
+$db_name = "db43";
 
 $conn = new mysqli($db_host, $db_user, $db_pass, $db_name);
 
