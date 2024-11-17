@@ -49,10 +49,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } 
     
     else {
-        // Insert new user
-        $query = "INSERT INTO users (username, password_hash) VALUES (?, ?)";
-        $stmt = $conn->prepare($query);
-        $stmt->bind_param("ss", $username, $password_hash);
+         // Insert new user
+         $query = "INSERT INTO users (username, password_hash, admin) VALUES (?, ?, ?)";
+         $stmt = $conn->prepare($query);
+         $stmt->bind_param("ssi", $username, $password_hash, $admin); // ssi for string string int/bool
 
         if ($stmt->execute()) {
             echo "Registration successful!";

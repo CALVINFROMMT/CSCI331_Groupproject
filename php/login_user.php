@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST['l-password'];
 // --------------------------------------------------------------
 // Prepare SQL statement to prevent SQL injection
-    $query = "SELECT password_hash FROM users WHERE username = ?";
+    $query = "SELECT password_hash, admin FROM users WHERE username = ?";
     $stmt = $conn->prepare($query);
     $stmt->bind_param("s", $username);
     $stmt->execute();
@@ -28,8 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $user = $result->fetch_assoc();
         // Verify the password
         if (password_verify($password, $user['password_hash'])) {
-            $_SESSION['admin'] = $user['admin'];
-
+        
             if($user['admin']){
                 header("Location: admin_dashboard.php");
                 echo "admin";  // Send "success" message for JavaScript to process
