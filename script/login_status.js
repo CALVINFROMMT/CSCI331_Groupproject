@@ -20,8 +20,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 loginStatus.style.color = "green";
             } 
             else if (data === "admin") {
-                loginStatus.textContent = "Admin successful!";
-                loginStatus.style.color = "red";
+              //  loginStatus.textContent = "Admin successful!";
+             //   loginStatus.style.color = "red";
             }else {
                 loginStatus.textContent = "Login failed. Please check your username and password.";
                 loginStatus.style.color = "red";

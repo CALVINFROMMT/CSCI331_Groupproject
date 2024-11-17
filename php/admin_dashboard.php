@@ -9,7 +9,6 @@
 <body>
     <h1>ADMIN DASHBOARD</h1>
    <?php
-session_start();
 
 // Database connection
 $db_host = "localhost";
