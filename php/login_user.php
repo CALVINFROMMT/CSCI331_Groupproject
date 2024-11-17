@@ -31,7 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
             if($user['admin']){
                 header("Location: admin_dashboard.php");
-                echo "admin";  // Send "success" message for JavaScript to process
+                exit();  // Send "success" message for JavaScript to process
             }
             else{
                 echo "success";
