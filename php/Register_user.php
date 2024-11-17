@@ -29,6 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     $username = $conn->real_escape_string($_POST['c-username']);
     $password = $_POST['c-password'];
+    $admin = 0; // Default admin column for database is 0 for false.
 
     echo "<p>Adding <strong> $username </strong> with password <strong>$password</strong>.</p>";
     // Generate a secure password hash
@@ -50,9 +51,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     else {
         // Insert new user
-        $query = "INSERT INTO users (username, password_hash) VALUES (?, ?)";
+        $query = "INSERT INTO users (username, password_hash, admin) VALUES (?, ?, ?)";
         $stmt = $conn->prepare($query);
-        $stmt->bind_param("ss", $username, $password_hash);
+        $stmt->bind_param("ssi", $username, $password_hash, $admin); // ssi for string string int/bool
 
         if ($stmt->execute()) {
             echo "Registration successful!";

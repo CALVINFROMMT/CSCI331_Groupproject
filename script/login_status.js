@@ -15,10 +15,19 @@ document.addEventListener("DOMContentLoaded", function() {
         .then(response => response.text())
         .then(data => {
             // Display the login status message
-            if (data === "success") {
-                loginStatus.textContent = "Login successful!";
+            if (data === "admin") {
+                loginStatus.textContent = "Redirect successful!";
                 loginStatus.style.color = "green";
-            } else {
+                // REDIRECT TO admin dash.
+                setTimeout(() => {
+                    window.location.href = "admin_dashboard.php";
+                }, 1000);
+            } 
+            else if (data === "success") {
+             
+                loginStatus.textContent = "Login successful!";
+                loginStatus.style.color = "red";
+            }else {
                 loginStatus.textContent = "Login failed. Please check your username and password.";
                 loginStatus.style.color = "red";
             }
