@@ -32,12 +32,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['admin'] = $user['admin'];
 
             if($user['admin']){
-                header("Location: admin_dashboard.php");
-                echo "admin";
-                exit();  // Send "success" message for JavaScript to process
+                echo "admin"; // Send "admin" message for JavaScript to process
             }
             else{
-                echo "success";
+                echo "success"; // Send "success" message for JavaScript to process
             }
         } else {
             echo "failure";  // Send "failure" message for JavaScript to process
