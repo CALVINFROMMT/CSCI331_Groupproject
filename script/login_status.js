@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function() {
         })
         .then(response => response.text())
         .then(data => {
-
+            console.log("Server Response:", data);
             if (data === "success") {
                 loginStatus.textContent = "Not admin Login successful!";
                 loginStatus.style.color = "green";

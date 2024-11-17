@@ -30,7 +30,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (password_verify($password, $user['password_hash'])) {
             $_SESSION['admin'] = $admin;
 
-            if($admin){
+            if($admin == 1){
+                header("Location: admin_dashboard.php");
                 echo "admin";  // Send "success" message for JavaScript to process
             }
             else{
