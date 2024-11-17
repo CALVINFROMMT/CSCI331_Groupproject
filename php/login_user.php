@@ -16,8 +16,8 @@ if ($conn->connect_error) {
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $conn->real_escape_string($_POST['l-username']);
     $password = $_POST['l-password'];
-
-    // Prepare SQL statement to prevent SQL injection
+// --------------------------------------------------------------
+// Prepare SQL statement to prevent SQL injection
     $query = "SELECT password_hash FROM users WHERE username = ?";
     $stmt = $conn->prepare($query);
     $stmt->bind_param("s", $username);
