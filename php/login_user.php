@@ -26,15 +26,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($result->num_rows === 1) {
         $user = $result->fetch_assoc();
-        
         // Verify the password
         if (password_verify($password, $user['password_hash'])) {
-            $_SESSION['username'] = $username;
-            echo "success";  // Send "success" message for JavaScript to process
+            $_SESSION['admin'] = $admin;
+
+            if($admin){
+                echo "admin";  // Send "success" message for JavaScript to process
+            }
+            else{
+                echo "success";
+            }
         } else {
             echo "failure";  // Send "failure" message for JavaScript to process
         }
-    } else {
+    } 
+    else {
         echo "failure";  // Send "failure" message if user not found
     }
     $stmt->close();

@@ -14,11 +14,15 @@ document.addEventListener("DOMContentLoaded", function() {
         })
         .then(response => response.text())
         .then(data => {
-            // Display the login status message
+
             if (data === "success") {
-                loginStatus.textContent = "Login successful!";
+                loginStatus.textContent = "Not admin Login successful!";
                 loginStatus.style.color = "green";
-            } else {
+            } 
+            else if (data === "admin") {
+                loginStatus.textContent = "Admin successful!";
+                loginStatus.style.color = "red";
+            }else {
                 loginStatus.textContent = "Login failed. Please check your username and password.";
                 loginStatus.style.color = "red";
             }
