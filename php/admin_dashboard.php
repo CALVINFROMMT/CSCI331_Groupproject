@@ -12,7 +12,7 @@
 session_start();
 
 // Check if the user is logged in and has admin privileges
-if (!isset($_SESSION['username'])) {
+if (!isset($_SESSION['username'])|| $_SESSION['admin'] != 1) {
     header("Location: login_user.php");
     exit();
 }

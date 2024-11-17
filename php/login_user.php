@@ -28,7 +28,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $user = $result->fetch_assoc();
         // Verify the password
         if (password_verify($password, $user['password_hash'])) {
-        
+            $_SESSION['username'] == $username;
+            $_SESSION['admin'] = $user['admin'];
+            
             if($user['admin']){
                 header("Location: php/admin_dashboard.php");
                 exit();  // Send "success" message for JavaScript to process
