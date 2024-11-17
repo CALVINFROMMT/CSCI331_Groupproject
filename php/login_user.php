@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST['l-password'];
 // --------------------------------------------------------------
 // Prepare SQL statement to prevent SQL injection
-    $query = "SELECT password_hash, admin FROM users WHERE username = ?";
+    $query = "SELECT (password_hash, admin) FROM users WHERE username = ?";
     $stmt = $conn->prepare($query);
     $stmt->bind_param("s", $username);
     $stmt->execute();
@@ -26,13 +26,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($result->num_rows === 1) {
         $user = $result->fetch_assoc();
-        
+        echo "ADMIN value: ". $user['admin'];
         // Verify the password
         if (password_verify($password, $user['password_hash'])) {
             $_SESSION['username'] = $username;
         //CHECK FOR ADMIN STATUS.
             // USER HAS ADMIN PRIVLAGES
             if ($user['admin'] == 1){
+
                 echo "admin";  // Send "success" message for JavaScript to process
             }
             // USER IS **NOT** ADMIN

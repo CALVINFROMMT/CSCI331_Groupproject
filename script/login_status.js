@@ -14,10 +14,11 @@ document.addEventListener("DOMContentLoaded", function() {
         })
         .then(response => response.text())
         .then(data => {
+            console.log("Server Response:", data); 
             // Display the login status message
             if (data === "admin") {
                 loginStatus.textContent = "Redirect successful!";
-                loginStatus.style.color = "green";
+                loginStatus.style.color = "blue";
                 // REDIRECT TO admin dash.
                 setTimeout(() => {
                     window.location.href = "admin_dashboard.php";
