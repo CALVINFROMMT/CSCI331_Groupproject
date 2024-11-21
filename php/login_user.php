@@ -1,5 +1,10 @@
 <?php
 session_start();
+if (password_verify($password, $user['password_hash'])) {
+    $_SESSION['username'] = $username; // Fix typo from '==' to '='
+    $_SESSION['admin'] = $user['admin'];
+}
+
 
 // Database connection (replace with your actual credentials)
 $db_host = "localhost";
