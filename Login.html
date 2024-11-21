@@ -31,6 +31,11 @@
     <div id="page-switch">
         <p><a href="Create.html">Need to create an account? Click here</a></p>
     </div>
+    <div id="admin-options">
+    <?php if (isset($_SESSION['admin']) && $_SESSION['admin'] == 1): ?>
+        <p><a href="php/view_users.php">View Users</a></p>
+    <?php endif; ?>
+</div>
 </div>
 </body>
 </html>
