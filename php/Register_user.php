@@ -33,6 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     echo "<p>Adding <strong> $username </strong> with password <strong>$password</strong>.</p>";
     // Generate a secure password hash
     $password_hash = password_hash($password, PASSWORD_DEFAULT);
+    $admin = FALSE;
     echo "<p>Adding <strong>$username </strong> with hashed password <strong>$password_hash</strong>.</p>";
     
     

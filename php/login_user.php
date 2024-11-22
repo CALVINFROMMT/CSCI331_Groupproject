@@ -9,9 +9,9 @@
 <body>
     <h1>LOGIN PAGE</h1>
 <?php
-session_start();
-
-// Database connection (replace with your actual credentials)
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+// Database connection (replace with your credentials)
 $db_host = "localhost";
 $db_user = "user43";
 $db_pass = "43falx";
@@ -34,15 +34,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->execute();
     $result = $stmt->get_result();
 
-    if ($result->num_rows === 1) {
+ 
+    if ($result-> num_rows === 1) {
         $user = $result->fetch_assoc();
         // Verify the password
         if (password_verify($password, $user['password_hash'])) {
-            $_SESSION['username'] == $username;
-            $_SESSION['admin'] = $user['admin'];
 
             if($user['admin']){
                 echo "admin"; // Send "admin" message for JavaScript to process
+                $result->free();
+                header("Location: login_admin.php");
+                
             }
             else{
                 echo "success"; // Send "success" message for JavaScript to process

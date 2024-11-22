@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function() {
             body: formData
         })
         .then(response => response.text())
-        .then(data => {
+        /* .then(data => {
             
             if (data === "success") {
                 loginStatus.textContent = "Not admin Login successful!";
@@ -26,10 +26,10 @@ document.addEventListener("DOMContentLoaded", function() {
                 loginStatus.textContent = "Login failed. Please check your username and password.";
                 loginStatus.style.color = "red";
             }
-        })
-        .catch(error => {
+        }) */
+/*         .catch(error => {
             loginStatus.textContent = "An error occurred. Please try again later.";
             loginStatus.style.color = "red";
-        });
+        }); */
     });
 });
