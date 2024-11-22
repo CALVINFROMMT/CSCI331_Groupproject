@@ -29,25 +29,31 @@ $result_1 = $conn_1->query($query_admin);
 
 if($result_1 && $result_1->num_rows > 0){
     $columns = array_keys($result_1->fetch_assoc());
-
+    echo "<table border='1'>";
+    echo "<thead><tr>";
     foreach ($columns as $column){
-        echo "<th>" . htmlspecialchars($column) . "</th>"."____";
+        echo "<th>" . htmlspecialchars($column) . "</th>"."_________";
     }
-    
+    echo "</tr></thead>";
     $result_1->data_seek(0);
 }
 
+echo "<tbody>";
 if($result_1 && $result_1->num_rows > 0){
-    echo "<tr><td colspan='2' style='height: 20px;'></td></tr>";
+    
     while($row=$result_1->fetch_assoc()){
         echo "<tr>";
         foreach($row as $value){
-            echo "<td>" . htmlspecialchars($value) . "</td>";
+            echo "<td colspan='10' style='height: 20px;'>" . htmlspecialchars($value) . "</td>";
+            echo "      ";
         }
     echo "</tr>";
-    echo "    ";
+ 
     }
+    echo "<tbody>";
+    echo "</table>";
 }
+
 else {
     echo "<tr><td colspan='100%'>NO DATA FOUND</td></tr>";
  
