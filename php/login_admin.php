@@ -33,12 +33,12 @@ if($result_1 && $result_1->num_rows > 0){
     foreach ($columns as $column){
         echo "<th>" . htmlspecialchars($column) . "</th>"."____";
     }
-    echo "<tr> </tr>";
+    
     $result_1->data_seek(0);
 }
 
 if($result_1 && $result_1->num_rows > 0){
-    echo "<tr> </tr>";
+    echo "<tr><td colspan='2' style='height: 20px;'></td></tr>";
     while($row=$result_1->fetch_assoc()){
         echo "<tr>";
         foreach($row as $value){
